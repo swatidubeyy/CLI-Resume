@@ -63,7 +63,7 @@ inquirer
         Library Management System
         Hotel Management System
         CLI Resume"`)
-        cp.execSync('start chrome https://github.com/swatidubeyy/CLI-Resume/new/main')
+        cp.execSync('start chrome https://github.com/swatidubeyy/CLI-Resume/blob/main/CLI%20Resume')
         DisplayNext()
     }
 
