@@ -1,0 +1,136 @@
+var inquirer = require('inquirer');
+const cp = require('child_process');
+const { start } = require('repl');
+
+function DisplayDeatails(){
+
+inquirer
+  .prompt([
+    {
+      type : 'list',
+      name : 'selection',
+      choices : ['Name','Objective' , 'Education Qualification','Internship', 'Technical skills', 'Training' , 'projects' , 'Subject of Intrest' ,'Achievements','Co-Curricular Activities' , 'Declaration' , 'personal profile'] 
+    }
+  ])
+  .then((choices) => {
+
+    if(choices.selection == 'Name'){
+
+        var figlet = require('figlet');
+        figlet('Swati Dubey', function(err, data) {
+            if (err) {
+                console.log('Something went wrong...');
+                console.dir(err);
+                return;
+            }
+            console.log(data)
+        });
+
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Objective'){
+        console.log(`My aim is to be associated with a progressive organization that gives scopeto update my skills 
+        and to be part of a team that dynamically works towards the growth of the organization .`)
+          DisplayNext()
+    }
+
+    else if(choices.selection == 'Education Qualification'){
+        console.log(`B.tech from Ambalika Institute of Management and Technology Lucknow with 75.9% till 7th semester.
+        Intermediate with 70.4%
+        Highschool 86.17%.`)
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Internship'){
+        console.log(` Technical Content Creator Intern at Pepcoding Education Pvt Ltd.`)
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Technical skills'){
+        console.log("java , c++ , c# , javascript , html , css")
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Training'){
+        console.log(`1)Working training under Pepcoding Education private limited organization in First Job Programme for a total period of 32 weeks from 18th October 2021 to 2nd june 2022.
+        2)Done a training on Data Structure from Ambalika Institute of Management and Technology Lucknow, U.P (Date: June 2019 - July 2019).`)
+        DisplayNext()
+    }
+    
+    else if(choices.selection == 'projects'){
+        console.log(`"File System Orgenizer
+        Library Management System
+        Hotel Management System
+        CLI Resume"`)
+        cp.execSync('start chrome https://github.com/swatidubeyy/CLI-Resume/new/main')
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Subject of Intrest'){
+        console.log("DataBase Management System (DBMS)")
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Achievements'){
+        console.log(`"Golden badge on HackerRank
+        "D" grade in course on computer concepts
+        1st in Bharatiya Sanskriti Gyan Pariksha"`)
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Co-Curricular Activities'){
+        console.log(`"Participated in Northern Biggest Fest “Antragni” at IIT,KANPUR • Head of Eklavya Management club.(2019-present).
+        Participated in paighaam 2k19(Cultural event)(selected for finals)
+        Zonal level (Nukkad Natak 1st prize held at Maharana Pratap Engineering college(AKTU))"`)
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'Declaration'){
+        console.log(`"I hereby declare that all the information mentioned above is true and correct to the best of my knowledge."`)
+        DisplayNext()
+    }
+
+    else if(choices.selection == 'personal profile'){
+        console.log(`"Father's name - Mr. Radhe Shyam Dubey
+        Mother's name - Mrs. Neelam Dubey
+        Date of Birth - 12/02/2001
+        Language - English, Hindi
+        Religion - Hindu. "`)
+        DisplayNext()
+    }
+    
+  })
+  .catch((error) => {
+    if (error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else went wrong
+    }
+  });
+
+}
+DisplayDeatails()
+
+function DisplayNext(){
+  var inquirer = require('inquirer');
+
+  inquirer
+  .prompt([
+    {
+      type : 'list',
+      name : 'GoBack',
+      choices : ['Back'] 
+    }
+  ])
+  .then((choice) => {
+    if(choice.GoBack == 'Back'){
+      DisplayDeatails()
+    }
+  })
+  
+  
+  Source of Project -- >>> https://www.npmjs.com/package/inquirer  and  https://www.npmjs.com/package/figlet
+  
+
+}
